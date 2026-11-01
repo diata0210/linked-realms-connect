@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><title>Connect native browser conformance</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "@noble/curves/": "/node_modules/@noble/curves/esm/",
+        "@noble/hashes/": "/node_modules/@noble/hashes/esm/",
+        "@noble/curves/ed25519": "/node_modules/@noble/curves/esm/ed25519.js",
+        "@noble/hashes/sha256": "/node_modules/@noble/hashes/esm/sha256.js"
+      }
+    }
+  </script>
+  <pre id="result">RUNNING</pre>
+  <script>
+    addEventListener("error", (e) =>
+      fetch("/report", {
+        method: "POST",
+        body: JSON.stringify({ status: "ERROR", error: e.message }),
+      }),
+    );
+  </script>
+  <script type="module">
+    import {
+      decodeProfile,
+      encodeProfile,
+      decodeCard,
+      encodeCard,
+      decodeInvite,
+      encodeInvite,
+      validateOrigin,
+      hash,
+    } from "/dist/index.js";
+    const hex = (b) =>
+      Array.from(b, (x) => x.toString(16).padStart(2, "0")).join("");
+    const bytes = (s) =>
+      Uint8Array.from(s.match(/../g) ?? [], (x) => parseInt(x, 16));
+    try {
+      const cases = await (await fetch("/test/browser-vectors.json")).json();
+      const failures = [];
+      for (const row of cases) {
+        let actual;
+        try {
+          if (row.kind === "origin") {
+            validateOrigin(row.origin);
+            actual = { ok: true };
+          } else {
+            const [decode, encode] =
+              row.kind === "profile"
+                ? [decodeProfile, encodeProfile]
+                : row.kind === "card"
+                  ? [decodeCard, encodeCard]
+                  : [decodeInvite, encodeInvite];
+            const raw = bytes(row.hex),
+              object = await decode(raw),
+              encoded = await encode(object);
+            actual = { ok: true, encoded: hex(encoded), hash: hex(hash(raw)) };
+          }
+        } catch (e) {
+          actual = { ok: false, error: "protocol error " + e.code };
+        }
+        const expected = row.expected;
+        if (
+          actual.ok !== expected.ok ||
+          (actual.ok &&
+            row.kind !== "origin" &&
+            (actual.encoded !== expected.encoded ||
+              actual.hash !== expected.hash)) ||
+          (!actual.ok && actual.error !== expected.error)
+        )
+          failures.push({ name: row.name, expected, actual });
+      }
+      const report = {
+        status: failures.length ? "FAIL" : "PASS",
+        total: cases.length,
+        failures,
+      };
+      document.querySelector("#result").textContent = JSON.stringify(report);
+      await fetch("/report", { method: "POST", body: JSON.stringify(report) });
+    } catch (e) {
+      const report = { status: "ERROR", error: String(e) };
+      document.querySelector("#result").textContent = JSON.stringify(report);
+      await fetch("/report", { method: "POST", body: JSON.stringify(report) });
+    }
+  </script>
+</html>

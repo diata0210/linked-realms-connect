@@ -1,0 +1,29 @@
+{
+  "name": "@linked-realms/connect-protocol",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": "24.16.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "test": "vitest run",
+    "format": "prettier --check src test tools",
+    "lint": "tsc --noEmit --noUnusedLocals --noUnusedParameters",
+    "test:browser": "node tools/browser-test.mjs"
+  },
+  "dependencies": {
+    "@noble/curves": "1.9.7",
+    "@noble/hashes": "1.8.0"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3",
+    "vitest": "3.2.4",
+    "@types/node": "24.0.0",
+    "prettier": "3.5.3"
+  }
+}

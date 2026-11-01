@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-01",
+  "purpose": "source branch upload, not binary/package release",
+  "namespace": "diata0210/linked-realms-connect",
+  "license": "MIT",
+  "copyright_holder": "diata0210",
+  "scanner": {
+    "name": "gitleaks",
+    "version": "8.30.1",
+    "release_archive_sha256": "d29144deff3a68aa93ced33dddf84b7fdc26070add4aa0f4513094c8332afc4e",
+    "unresolved_findings": 0
+  },
+  "scanned_source_tree_before_evidence": "397b7c8bd09b27a67a479ff948942ace453ec1af",
+  "private_hub_history_imported": false,
+  "reviewed_exceptions": [
+    {
+      "path": "protocol/vectors/v1.json",
+      "sha256": "495eddc75c2e30a26b7f1812a8acdfbfaeb7fb4e32f08cb2585f272f1b0f1450",
+      "lines": [
+        1452,
+        1475
+      ],
+      "field": "poster_key_hex",
+      "reason": "Public synthetic poster keys in frozen protocol test vectors; no private credentials."
+    }
+  ],
+  "built_artifacts": [
+    {
+      "path": "packages/connect-protocol/dist/codes.d.ts",
+      "sha256": "352ca4b779c9afc3b25afc5bc85e8ca6030752ec26bb1d627664f9720d5b97f6"
+    },
+    {
+      "path": "packages/connect-protocol/dist/codes.js",
+      "sha256": "b1d3710c23165c2b92c271770c3bfac6d22285f09b3ff96b6e2e8f8b784c98c7"
+    },
+    {
+      "path": "packages/connect-protocol/dist/index.d.ts",
+      "sha256": "1c4b814ae3b5c8a078b43609fa649e10e7474d30d92aed529ca79a34c63b8862"
+    },
+    {
+      "path": "packages/connect-protocol/dist/index.js",
+      "sha256": "4e5741975b1b8bafdef7e9b1fcac8de3028a9931dd2dfbe4826012c1ac6f6c92"
+    }
+  ],
+  "local_verification": {
+    "go_vet_race_spec": "pass",
+    "standalone_protocol_dependency_boundary": "pass",
+    "typescript_unit_tests": 12,
+    "native_browser_parity_cases": 130
+  },
+  "remaining_work": [
+    "Hub and agent integration after T02",
+    "Real immutable consumer module/package pins",
+    "Binary/package release gate remains closed",
+    "Public CI will be checked before making this source repository public"
+  ]
+}

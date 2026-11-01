@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+*.test
+*.exe
+.env
+identity.json
+*.key
+*.pem
+go.work.sum

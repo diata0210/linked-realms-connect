@@ -1,0 +1,8 @@
+{
+  "protocol_version": 1,
+  "files": {
+    "protocol/v1.md": "ea6378e35e552ec39a5a7baba91be11263c658c57893b1d3c6d6cc974125ee6a",
+    "protocol/vectors/v1.json": "495eddc75c2e30a26b7f1812a8acdfbfaeb7fb4e32f08cb2585f272f1b0f1450",
+    "protocol/vectors/nk-transcript.json": "bc3a28d5b63d6534de99b3e1c7a970cf626a0767f03b8d10103a9a6710675969"
+  }
+}

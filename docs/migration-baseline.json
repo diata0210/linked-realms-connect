@@ -1,0 +1,66 @@
+[
+  {
+    "path": "protocol/agent-local-api.md",
+    "sha256": "acb76d012a47854944f920951c6477af2cf9ebdf90a9f4493798c40db3ecc4ad"
+  },
+  {
+    "path": "protocol/manifest.json",
+    "sha256": "13a6a972873b13932f7fdc70ff31d3fe6b709b4973cceb5352d25d9b940a7f88"
+  },
+  {
+    "path": "protocol/v1.md",
+    "sha256": "ea6378e35e552ec39a5a7baba91be11263c658c57893b1d3c6d6cc974125ee6a"
+  },
+  {
+    "path": "protocol/vectors/v1.json",
+    "sha256": "495eddc75c2e30a26b7f1812a8acdfbfaeb7fb4e32f08cb2585f272f1b0f1450"
+  },
+  {
+    "path": "tools/checkspec/coverage.go",
+    "sha256": "ea27409f2aff0941267e3884645a8f89bc23d314dce36cb6226e61ad9078d3c1"
+  },
+  {
+    "path": "tools/checkspec/coverage_test.go",
+    "sha256": "f001c5dffbfd25b00f5902667811bbb72bec9207d63c7f4068e502b454724519"
+  },
+  {
+    "path": "tools/checkspec/final_b_test.go",
+    "sha256": "9177c2aa1cc03ae6b17653133d3d5b88a5bc688dccba94c7a3931ddf65018278"
+  },
+  {
+    "path": "tools/checkspec/main.go",
+    "sha256": "a3a5b56f32c9793d653d495cb7af939ee94b04b634df008c3cf541491309feee"
+  },
+  {
+    "path": "tools/checkspec/main_test.go",
+    "sha256": "2ba9e872a5bed94ff3aeca0de7c70fd56cdaacb369c763f6b1fbeeb1224077d6"
+  },
+  {
+    "path": "tools/vectorgen/cases.go",
+    "sha256": "dbfede48c1fba3c569b8efaa61196d31d25ab9f899e0e028883610c7a7cc8f46"
+  },
+  {
+    "path": "tools/vectorgen/derive.go",
+    "sha256": "b60fdff9a059ee02316739a685a74adc421b4842cc0e53d53b4626e4dc93e902"
+  },
+  {
+    "path": "tools/vectorgen/go.mod",
+    "sha256": "cdf8304bf6cd9cb8a9732b62766c6f704a9b3f15a364d301e44e9fdddb79d27c"
+  },
+  {
+    "path": "tools/vectorgen/go.sum",
+    "sha256": "21506a2bb2b2d567d904dc2c69ede711f272c2f74f2048b2518d10f9c61ebff2"
+  },
+  {
+    "path": "tools/vectorgen/main.go",
+    "sha256": "6cc8237f12c7ba7ea9b98fe7724bd5fc45cbfe9a3f8f199d2acbdbdc8784a832"
+  },
+  {
+    "path": "tools/vectorgen/quests.go",
+    "sha256": "ea1a6c1a173c64e63171a696835233158b7676ee7288cc835a03008905d30d5c"
+  },
+  {
+    "path": "docs/decisions/0003-root-seed-key-model.md",
+    "sha256": "f89bf379f84d3266d3a7c554f5e3e8a6bebe49588910c960a6f96115000425bf"
+  }
+]
